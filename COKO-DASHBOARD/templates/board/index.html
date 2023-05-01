@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  {% load humanize %}
+  {% load static %}
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>COKO</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png'%}" rel="icon">
+  <script type="text/javascript" src="{% static 'js/d3.js' %}"></script>
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin - v2.4.1
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+
+
+  <!-- =======================================================
+  jaeyeol fornt
+  - google -
+  ======================================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700);" rel="stylesheet" >
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-center">
+      <a href="/" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">COKO</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+
+
+
+
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="/">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav"  href="/News">
+          <i class="bi bi-ui-checks"></i><span>코로나 뉴스</span></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/board/News/">
+              <i class="bi bi-circle"></i><span>Alerts</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav"  href="https://github.com/orgs/Give-Me-Back/repositories">
+          <i class="bi bi-github"></i><span>Github</span></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="forms-elements.html">
+              <i class="bi bi-circle"></i><span>Form Elements</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-layouts.html">
+              <i class="bi bi-circle"></i><span>Form Layouts</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-editors.html">
+              <i class="bi bi-circle"></i><span>Form Editors</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-validation.html">
+              <i class="bi bi-circle"></i><span>Form Validation</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+    </ul>
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>코로나현황판</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+      <div class="row">
+
+        <!-- Left side columns -->
+        <div class="col-lg-12">
+          <div class="row">
+
+            <!-- Sales Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+                <div class="card-body1">
+
+                  <h5 class="card-title"><span style="font-family: 'Jua', sans-serif;"><span style="color: black;"><center style="font-size: 25px;">누적 확진자</center></span></span></h5>
+
+                    {% if posts %}
+                    {% for post in posts %}
+                    {% if post.gubun == "합계" %}
+                    <div class="ps-3">
+                      <h6>
+                        <center>{{ post.defcnt|intcomma }}명 </center>
+                        </h6>
+                      <h7>
+                      <span style="color: red;"><center>{{ post.incdec|intcomma }}  <i class="bi bi-person-plus-fill"></i></center></span>
+                      </h7>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                </div>
+              </div>
+            </div><!-- End Sales Card -->
+
+            <!-- Revenue Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+                <div class="card-body1">
+                  <h5 class="card-title"><span style="font-family: 'Jua', sans-serif;"><span style="color: black;"><center style="font-size: 25px;">사망자</center></span></span></h5>
+
+                    {% if posts %}
+                    {% for post in posts %}
+                    {% if post.gubun == "합계" %}
+                    <div class="ps-3">
+                      <h6>
+                        <center>{{ post.deathcnt|intcomma }}명</center>
+                      </h6>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+
+                </div>
+              </div>
+            </div><!-- End Revenue Card -->
+
+            <!-- Customers Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+                <div class="card-body1">
+                  <h5 class="card-title"><span style="font-family: 'Jua', sans-serif;"><span style="color: black;"><center style="font-size: 25px;">확진자</center></span></span></span></h5>
+
+                    {% if posts %}
+                    {% for post in posts %}
+                    {% if post.gubun == "합계" %}
+                    <div class="ps-3">
+                      <h6>
+                        <span style="color: red;"><center>{{ post.localocccnt|intcomma}}명</center></span>
+                      </h6>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+
+                </div>
+              </div>
+            </div><!-- End Customers Card -->
+
+            <!-- Reports -->
+            <div class="col-12">
+              <div class="card">
+
+
+
+                <div class="card-body">
+
+                  <h5 class="card-title"><span></span></h5>
+
+              <!-- Pills Tabs -->
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><span style="font-family: 'Jua', sans-serif; "><i class="bi bi-map"></i> 지도</span></button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><span style="font-family: 'Jua', sans-serif; "><i class="bi bi-list-ul"></i> 리스트</span></button>
+              </ul>
+              <div class="tab-content pt-2" id="myTabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="home-tab">
+            <div style=" float: left; width: 55%;">
+                                    <!-- Line Chart -->
+                  <script type='text/javascript' src='http://www.google.com/jsapi'></script>
+                  <script type='text/javascript'>google.load('visualization', '1', {'packages': ['geochart']});
+                  google.setOnLoadCallback(drawVisualization);
+
+                  function drawVisualization() {
+                      var data = new google.visualization.DataTable();
+
+                      data.addColumn('string', 'Country');
+                      data.addColumn('number', 'Value');
+                      data.addColumn({type:'string', role:'tooltip'});var ivalue = new Array();
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "서울" %}
+                      data.addRows([[{v:'KR-11', f:'서울특별시'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+	                  ivalue['KR-11'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "부산" %}
+                      data.addRows([[{v:'KR-26', f:'부산광역시'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+                      ivalue['KR-26'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "대구" %}
+                      data.addRows([[{v:'KR-27',f:'대구광역시'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+                      ivalue['KR-27'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "대전" %}
+                      data.addRows([[{v:'KR-30',f:'대전광역시'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+                      ivalue['KR-30'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "광주" %}
+                      data.addRows([[{v:'KR-29',f:'광주광역시'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+                      ivalue['KR-29'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "인천" %}
+                      data.addRows([[{v:'KR-28',f:'인천광역시'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+                      ivalue['KR-28'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "울산" %}
+                      data.addRows([[{v:'KR-31',f:'울산광역시'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+                      ivalue['KR-31'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "충북" %}
+                      data.addRows([[{v:'KR-43',f:'충청북도'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+                      ivalue['KR-43'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "충남" %}
+                      data.addRows([[{v:'KR-44',f:'충청남도'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+                      ivalue['KR-44'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "강원" %}
+                      data.addRows([[{v:'KR-42',f:'강원도'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+                      ivalue['KR-42'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "경기" %}
+                      data.addRows([[{v:'KR-41',f:'경기도'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+                      ivalue['KR-41'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "경북" %}
+                      data.addRows([[{v:'KR-47',f:'경상북도'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+                      ivalue['KR-47'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "경남" %}
+                      data.addRows([[{v:'KR-48',f:'경상남도'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+                      ivalue['KR-48'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "제주" %}
+                      data.addRows([[{v:'KR-49',f:'제주도'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+                      ivalue['KR-49'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "전북" %}
+                      data.addRows([[{v:'KR-45',f:'전라북도'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+                      ivalue['KR-45'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      {% if posts %}
+                      {% for post in posts %}
+                      {% if post.gubun == "전남" %}
+                      data.addRows([[{v:'KR-46',f:'전라남도'},{{post.localocccnt}},'{{ post.localocccnt|intcomma }}명']]);
+                      ivalue['KR-46'] = "{{post.gubun}}";
+                      {% endif %}
+                      {% endfor %}
+                      {% endif %}
+
+                      var options = {
+                          backgroundColor: {fill:'#FFFFFF',stroke:'#FFFFFF' ,strokeWidth:0 },
+                          colorAxis: {colors: ['#e1e6f0', '#175de8']},
+
+                          backgroundColor: {fill:'#FFFFFF',stroke:'#FFFFFF' ,strokeWidth:0 },
+                          datalessRegionColor: '#f5f5f5',
+                          displayMode: 'regions',
+                          enableRegionInteractivity: 'true',
+                          resolution: 'provinces',
+                          sizeAxis: {minValue: 1, maxValue:1,minSize:10,  maxSize: 10},
+                          region:'KR', //country code
+                          keepAspectRatio: true,
+                          width:590,
+                          height:570,
+                          tooltip: {textStyle: {color: '#444444'}, trigger:'focus'}
+                      };
+
+                      var chart = new google.visualization.GeoChart(document.getElementById('visualization'));
+                      google.visualization.events.addListener(chart, 'select', function() {
+                          var selection = chart.getSelection();
+                          if (selection.length == 1) {
+                              var selectedRow = selection[0].row;
+                              var selectedRegion = data.getValue(selectedRow, 0);
+                              if(ivalue[selectedRegion] != '') {
+                                	 		if(ivalue[selectedRegion] != '') {
+                                              $.ajax({
+                                                  type:'GET',
+                                                  url:'/regions',
+                                                  data:{'get_data':ivalue[selectedRegion]},
+                                                  success:function(get_data){
+                                                      console.log("성공", get_data);
+                                                      $('#test').html(get_data)
+                                                  },
+                                                  error : function(xhr,errmsg,err) {
+                                                  console.log("실패");
+                                                  }
+                                             });
+                                      }
+                              }
+                          }
+                      });
+                      chart.draw(data, options);
+                  }
+                   </script>
+
+                   <div id='visualization'></div>
+
+                  </div>
+
+
+                  <div style="float: left; width: 45%;">
+
+                    <div id = 'test'>
+                      <style>
+                        #chartdiv1 {
+                          width: 90%;
+                          height: 500px;
+                        }
+                       </style>
+
+                        <!-- Resources -->
+                        <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+                        <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+                        <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+                        <!-- Chart code -->
+                        <script>
+                        am5.ready(function() {
+
+                        // Create root element
+                        // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                        var root = am5.Root.new("chartdiv1");
+
+
+                        // Set themes
+                        // https://www.amcharts.com/docs/v5/concepts/themes/
+                        root.setThemes([
+                          am5themes_Animated.new(root)
+                        ]);
+
+
+                        // Create chart
+                        // https://www.amcharts.com/docs/v5/charts/xy-chart/
+                        var chart = root.container.children.push(am5xy.XYChart.new(root, {
+                          panX: false,
+                          panY: false,
+                          wheelX: "panX",
+                          wheelY: "zoomX",
+                          layout: root.verticalLayout
+                        }));
+
+
+                        // Add legend
+                        // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+                        var legend = chart.children.push(am5.Legend.new(root, {
+                          centerX: am5.p50,
+                          x: am5.p50
+                        }))
+                        {% if d_posts %}
+                        var data = [
+                        {% for post in d_posts %}
+                        {% if post.gubun == '서울' %}
+                        {
+                          "year": "{{ post.stdday|date:'Y-m-d' }}",
+                          "income": {{ post.localocccnt }},
+                        },
+                        {% endif %}
+                        {% endfor %}
+                        ];;
+                        {% endif %}
+                        // Create axes
+                        // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+                        var yAxis = chart.yAxes.push(
+                          am5xy.CategoryAxis.new(root, {
+                            categoryField: "year",
+                            renderer: am5xy.AxisRendererY.new(root, {
+                              cellStartLocation: 0.1,
+                              cellEndLocation: 0.9
+                            }),
+                            tooltip: am5.Tooltip.new(root, {})
+                          })
+                        );
+
+                        yAxis.data.setAll(data);
+
+                        var xAxis = chart.xAxes.push(
+                          am5xy.ValueAxis.new(root, {
+                            min: 0,
+                            renderer: am5xy.AxisRendererX.new(root, {})
+                          })
+                        );
+
+
+                        // Add series
+                        // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+                        var series1 = chart.series.push(am5xy.ColumnSeries.new(root, {
+                          name: "확진자 수",
+                          xAxis: xAxis,
+                          yAxis: yAxis,
+                          valueXField: "income",
+                          categoryYField: "year",
+                          sequencedInterpolation: true,
+                          tooltip: am5.Tooltip.new(root, {
+                            pointerOrientation: "horizontal",
+                            labelText: "[bold]{name}[/]: {valueX} 명"
+                          })
+                        }));
+
+                        series1.columns.template.setAll({
+                          height: am5.percent(70)
+                        });
+
+
+
+
+                        // Add legend
+                        // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+                        var legend = chart.children.push(am5.Legend.new(root, {
+                          centerX: am5.p50,
+                          x: am5.p50
+                        }));
+
+                        legend.data.setAll(chart.series.values);
+
+                        // Add cursor
+                        // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+                        var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+                          behavior: "zoomY"
+                        }));
+                        cursor.lineX.set("visible", false);
+
+                        series1.data.setAll(data);
+
+                        // Make stuff animate on load
+                        // https://www.amcharts.com/docs/v5/concepts/animations/
+                        series1.appear();
+                        chart.appear(1000, 100);
+
+                        }); // end am5.ready()
+                        </script>
+
+                        <!-- HTML -->
+
+                          <span style="font-family: 'Jua', sans-serif;">
+                            <span style="font-size: 2.5em"> 서울 </span>
+                          </span>
+
+                        <div id="chartdiv1"></div>
+
+
+
+
+                    </div>
+
+
+                 </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="profile-tab">
+
+
+
+            <div class="card-body">
+              <h5 class="card-title"> </h5>
+
+              <!-- Table with stripped rows -->
+
+              <table class="table table-striped" style="font-size: 25px; font-family: 'Jua', sans-serif;">
+                <thead>
+                  <tr>
+                    <th scope="col">지역</th>
+                    <th scope="col">오늘 확진자</th>
+                    <th scope="col">누적 확진자</th>
+                    <th scope="col">누적 사망자</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% if posts %}
+                  {% for post in posts %}
+                  <tr>
+                    <th scope="row">{{ post.gubun|intcomma }}</th>
+                    <td>{{ post.localocccnt|intcomma }}</td>
+                    <td>{{ post.defcnt|intcomma }}</td>
+                    <td>{{ post.deathcnt|intcomma }}</td>
+
+                  </tr>
+                  {% endfor %}
+                  {% endif %}
+                </tbody>
+              </table>
+
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+         </div>
+        </div><!-- End Pills Tabs -->
+
+              </div>
+</div>
+
+
+
+
+
+
+                </div><!-- End Reports -->
+
+            <!-- Recent Sales -->
+            <div class="col-12">
+              <div class="card recent-sales overflow-auto">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                  <!-- Styles -->
+                <div class="card-body">
+                  <h5 class="card-title"><span style="font-family: 'Jua', sans-serif; font-size: 25px; ">일일확진자 그래프</span> <span></span></h5>
+                  <!-- Line Chart -->
+                  <div id="reportsChart"></div>
+
+                  <!-- Styles -->
+<style>
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+</style>
+
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+<!-- Chart code -->
+<script>
+am5.ready(function() {
+
+// Create root element
+// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+var root = am5.Root.new("chartdiv");
+
+// Set themes
+// https://www.amcharts.com/docs/v5/concepts/themes/
+root.setThemes([
+  am5themes_Animated.new(root)
+]);
+
+root.dateFormatter.setAll({
+  dateFormat: "yyyy-MM-dd",
+  dateFields: ["valueX"]
+});
+{% if g_posts %}
+var data = [
+  {% for post in g_posts %}
+  {
+    date: "{{ post.stdday|date:'Y-m-d' }}",
+    steps: {{ post.localocccnt }}
+  },
+  {% endfor %}
+];
+{% endif %}
+// Create chart
+// https://www.amcharts.com/docs/v5/charts/xy-chart/
+var chart = root.container.children.push(
+  am5xy.XYChart.new(root, {
+    focusable: true,
+    panX: true,
+    panY: false,
+    wheelX: "panX",
+    wheelY: "none"
+  })
+);
+
+var easing = am5.ease.linear;
+
+// hide zoomout button
+chart.zoomOutButton.set("forceHidden", true);
+
+
+
+// Create axes
+// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+var xRenderer = am5xy.AxisRendererX.new(root, {
+  minGridDistance: 50,
+  strokeOpacity: 0.2
+});
+xRenderer.grid.template.set("forceHidden", true);
+
+var xAxis = chart.xAxes.push(
+  am5xy.DateAxis.new(root, {
+    maxDeviation: 0.49,
+    snapTooltip: false,
+    baseInterval: {
+      timeUnit: "day",
+      count: 1
+    },
+    renderer: xRenderer,
+    tooltip: am5.Tooltip.new(root, {})
+  })
+);
+
+var yRenderer = am5xy.AxisRendererY.new(root, { inside: true });
+yRenderer.grid.template.set("forceHidden", true);
+
+var yAxis = chart.yAxes.push(
+  am5xy.ValueAxis.new(root, {
+    maxDeviation: 0,
+    renderer: yRenderer
+  })
+);
+
+// Add series
+// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+var series = chart.series.push(
+  am5xy.ColumnSeries.new(root, {
+    xAxis: xAxis,
+    yAxis: yAxis,
+    valueYField: "steps",
+    valueXField: "date",
+    tooltip: am5.Tooltip.new(root, {
+      pointerOrientation: "vertical",
+      labelText: "{valueY}"
+    })
+  })
+);
+
+series.columns.template.setAll({
+  cornerRadiusTL: 15,
+  cornerRadiusTR: 15,
+  maxWidth: 30,
+  strokeOpacity: 0
+});
+
+series.columns.template.adapters.add("fill", function (fill, target) {
+  if (target.dataItem.get("valueY") < 6000) {
+    return am5.color(0xdadada);
+  }
+  return fill;
+});
+
+// Set up data processor to parse string dates
+// https://www.amcharts.com/docs/v5/concepts/data/#Pre_processing_data
+series.data.processor = am5.DataProcessor.new(root, {
+  dateFormat: "yyyy-MM-dd",
+  dateFields: ["date"]
+});
+
+series.data.setAll(data);
+
+// do not allow tooltip  to move horizontally
+series.get("tooltip").adapters.add("x", function (x) {
+  return chart.plotContainer.toGlobal({
+    x: chart.plotContainer.width() / 2,
+    y: 0
+  }).x;
+});
+
+// add ranges
+var goalRange = yAxis.createAxisRange(yAxis.makeDataItem({
+  value: 6000
+}));
+
+goalRange.get("grid").setAll({
+  forceHidden: false,
+  strokeOpacity: 0.2
+});
+
+var goalLabel = goalRange.get("label");
+
+goalLabel.setAll({
+  centerY: am5.p100,
+  centerX: am5.p100,
+  text: "Goal"
+});
+
+// put to other side
+goalLabel.adapters.add("x", function (x) {
+  return chart.plotContainer.width();
+});
+
+var goalRange2 = yAxis.createAxisRange(yAxis.makeDataItem({
+  value: 12000
+}));
+
+goalRange2.get("grid").setAll({
+  forceHidden: false,
+  strokeOpacity: 0.2
+});
+
+var goalLabel2 = goalRange2.get("label");
+
+goalLabel2.setAll({
+  centerY: am5.p100,
+  centerX: am5.p100,
+  text: "2 x Goal"
+});
+
+// put to other side
+goalLabel2.adapters.add("x", function (x) {
+  return chart.plotContainer.width();
+});
+
+// reposition when width changes
+chart.plotContainer.onPrivate("width", function () {
+  goalLabel.markDirtyPosition();
+  goalLabel2.markDirtyPosition();
+});
+
+// Add cursor
+// https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+  alwaysShow: true,
+  behavior: "none",
+  positionX: 0.5 // make it always be at the center
+}));
+cursor.lineY.set("visible", false);
+
+// zoom to last 11 days
+series.events.on("datavalidated", function () {
+  var toTime =
+    series.dataItems[series.dataItems.length - 1].get("valueX") +
+    am5.time.getDuration("day", 1);
+  var fromTime = series.dataItems[series.dataItems.length - 11].get("valueX");
+
+  xAxis.zoomToValues(fromTime, toTime);
+});
+
+// when plot are is released, round zoom to nearest days
+chart.plotContainer.events.on("globalpointerup", function () {
+  var dayDuration = am5.time.getDuration("day", 1);
+
+  var firstTime = am5.time
+    .round(new Date(series.dataItems[0].get("valueX")), "day", 1)
+    .getTime();
+  var lastTime =
+    series.dataItems[series.dataItems.length - 1].get("valueX") + dayDuration;
+  var totalTime = lastTime - firstTime;
+  var days = totalTime / dayDuration;
+
+  var roundedStart =
+    firstTime + Math.round(days * xAxis.get("start")) * dayDuration;
+  var roundedEnd =
+    firstTime + Math.round(days * xAxis.get("end")) * dayDuration;
+
+  xAxis.zoomToValues(roundedStart, roundedEnd);
+});
+
+// Make stuff animate on load
+// https://www.amcharts.com/docs/v5/concepts/animations/
+chart.appear(1000, 50);
+
+}); // end am5.ready()
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>
+                </div>
+              </div>
+            </div>
+
+     </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; KIM <strong><span>LEE</span></strong> BAEK
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      COKO BY GIVE<span> ME </span>BACK
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/apexcharts/apexcharts.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/chart.js/chart.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/echarts/echarts.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/quill/quill.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/simple-datatables/simple-datatables.js' %}"></script>
+  <script src="{% static 'assets/vendor/tinymce/tinymce.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load humanize %}
+  {% load static %}
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>COKO</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png'%}" rel="icon">
+  <script type="text/javascript" src="{% static 'js/d3.js' %}"></script>
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin - v2.4.1
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+
+    <!-- =======================================================
+    jaeyeol font
+    - google -
+    ======================================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700);" rel="stylesheet" >
+
+
+</head>
+
+<body>
+<!-- Styles -->
+<style>
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+</style>
+
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+<!-- Chart code -->
+<script>
+am5.ready(function() {
+
+// Create root element
+// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+var root = am5.Root.new("chartdiv");
+
+
+// Set themes
+// https://www.amcharts.com/docs/v5/concepts/themes/
+root.setThemes([
+  am5themes_Animated.new(root)
+]);
+
+
+// Create chart
+// https://www.amcharts.com/docs/v5/charts/xy-chart/
+var chart = root.container.children.push(am5xy.XYChart.new(root, {
+  panX: false,
+  panY: false,
+  wheelX: "panX",
+  wheelY: "zoomX",
+  layout: root.verticalLayout
+}));
+
+
+// Add legend
+// https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+var legend = chart.children.push(am5.Legend.new(root, {
+  centerX: am5.p50,
+  x: am5.p50
+}))
+{% if ajax_posts %}
+var data = [
+{% for post in ajax_posts %}
+{
+  "year": "{{ post.stdday|date:'Y-m-d' }}",
+  "income": {{ post.localocccnt }},
+},
+{% endfor %}
+];;
+{% endif %}
+// Create axes
+// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+var yAxis = chart.yAxes.push(
+  am5xy.CategoryAxis.new(root, {
+    categoryField: "year",
+    renderer: am5xy.AxisRendererY.new(root, {
+      cellStartLocation: 0.1,
+      cellEndLocation: 0.9
+    }),
+    tooltip: am5.Tooltip.new(root, {})
+  })
+);
+
+yAxis.data.setAll(data);
+
+var xAxis = chart.xAxes.push(
+  am5xy.ValueAxis.new(root, {
+    min: 0,
+    renderer: am5xy.AxisRendererX.new(root, {})
+  })
+);
+
+
+// Add series
+// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+var series1 = chart.series.push(am5xy.ColumnSeries.new(root, {
+  name: "확진자 수",
+  xAxis: xAxis,
+  yAxis: yAxis,
+  valueXField: "income",
+  categoryYField: "year",
+  sequencedInterpolation: true,
+  tooltip: am5.Tooltip.new(root, {
+    pointerOrientation: "horizontal",
+    labelText: "[bold]{name}[/]: {valueX} 명"
+  })
+}));
+
+series1.columns.template.setAll({
+  height: am5.percent(70)
+});
+
+
+
+
+// Add legend
+// https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+var legend = chart.children.push(am5.Legend.new(root, {
+  centerX: am5.p50,
+  x: am5.p50
+}));
+
+legend.data.setAll(chart.series.values);
+
+// Add cursor
+// https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+  behavior: "zoomY"
+}));
+cursor.lineX.set("visible", false);
+
+series1.data.setAll(data);
+
+
+// Make stuff animate on load
+// https://www.amcharts.com/docs/v5/concepts/animations/
+series1.appear();
+
+chart.appear(1000, 100);
+
+}); // end am5.ready()
+</script>
+
+<!-- HTML -->
+{% if get_data %}
+<div>
+  <span style="font-family: 'Jua', sans-serif;">
+    <span style="font-size: 2.5em"> {{ get_data  }} </span>
+  </span>
+</div>
+{% endif %}
+<div id="chartdiv"></div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'board/list.html' %}
+
+{% block content %}
+
+    {% if not test %}
+
+        <h1>검색 결과가 없습니다</h1>
+
+    {% else %}
+
+
+        <div class="container">
+            <div class="card">
+
+                <table class="card-body" border="1">
+                    {% for post in posts %}
+                    <tr>
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.gubun }}</td>
+                    <td>{{ post.isolclearcnt }}</td>
+                    <td>{{ post.stdday }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <br>
+
+
+    {% endif %}
+
+{% endblock %}
+</body>
+</html>
