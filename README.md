@@ -101,11 +101,11 @@
 
 
 - **데이터 전처리**
-    - naver_news.py는 '코로나 확진자'라는 키워드가 들어간 뉴스를 10개 단위로 출력해서 테이블을 만들어 저장합니다. 📌[전체 코드 확인](https://github.com/AiLEE96/COKO-Dashboard/blob/main/COKO-DASHBOARD/data/naver_news.py)
+    - naver_news.py는 '코로나 확진자'라는 키워드가 들어간 뉴스를 10개 단위로 출력해서 테이블을 만들어 저장합니다. 📌[전체 코드 확인](https://github.com/AiLEE96/COKO/blob/main/COKO-DASHBOARD/data/naver_news.py)
 
-    - korea.py는 대한민국의 도 별 코로나 확진자 현황 테이블을 만들어 저장합니다. 데이터가 xml 형태로 주어졌기 때문에 xmltodict를 통해서 dict 형태로 파싱, 파싱 된 데이터를 pandas dataframe으로 변환합니다. 📌[전체 코드 확인](https://github.com/AiLEE96/COKO-Dashboard/blob/main/COKO-DASHBOARD/data/korea.py)
+    - korea.py는 대한민국의 도 별 코로나 확진자 현황 테이블을 만들어 저장합니다. 데이터가 xml 형태로 주어졌기 때문에 xmltodict를 통해서 dict 형태로 파싱, 파싱 된 데이터를 pandas dataframe으로 변환합니다. 📌[전체 코드 확인](https://github.com/AiLEE96/COKO/blob/main/COKO-DASHBOARD/data/korea.py)
 
-    - seoul.py는 서울시의 코로나 확진자 현황 테이블을 만들어 저장합니다. 데이터가 xml 형태로 주어졌기 때문에 xmltodict를 통해서 dict 형태로 파싱, 파싱 된 데이터를 pandas dataframe으로 변환합니다.📌[전체 코드 확인](https://github.com/AiLEE96/COKO-Dashboard/blob/main/COKO-DASHBOARD/data/seoul.py)  
+    - seoul.py는 서울시의 코로나 확진자 현황 테이블을 만들어 저장합니다. 데이터가 xml 형태로 주어졌기 때문에 xmltodict를 통해서 dict 형태로 파싱, 파싱 된 데이터를 pandas dataframe으로 변환합니다.📌[전체 코드 확인](https://github.com/AiLEE96/COKO/blob/main/COKO-DASHBOARD/data/seoul.py)  
 
 ### 3-4. 사용자 요청(3Tier)
 

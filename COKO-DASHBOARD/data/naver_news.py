@@ -3,10 +3,10 @@ from sqlalchemy import create_engine
 import re
 
 ### mysql 연결
-MYSQL_HOSTNAME = 'database-1.chj8bifpnqxd.ap-northeast-2.rds.amazonaws.com'  # mysql ip
-MYSQL_USER = 'admin'  # user
-MYSQL_PASSWORD = 'qwer1234' # pw
-MYSQL_DATABASE = 'gmb_db'   # db name
+MYSQL_HOSTNAME = ''  # mysql ip
+MYSQL_USER = ''  # user
+MYSQL_PASSWORD = '' # pw
+MYSQL_DATABASE = ''   # db name
 
 connection_string = f'mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOSTNAME}/{MYSQL_DATABASE}'
 db = create_engine(connection_string) # db 연결
