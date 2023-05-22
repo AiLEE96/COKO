@@ -1,9 +1,5 @@
 # COKO
 
-*프로젝트를 설명하기에 앞서 해당 README는 제가 프로젝트에 기여한 부분을 중점적으로 작성되었다는 사실을 알려드립니다.*
-
-
-
 ### COKO(CORONA-KOREA)는 공공 데이터 포털과 서울시 데이터 포털의 코로나 API, 네이버 뉴스 API를 활용하여 코로나 현황을 게시하는 웹 대시보드 서비스입니다.
 
 </br>
@@ -129,7 +125,7 @@
 - **NLB(Network Load Balancer)**
     - TCP/IP 프로토콜을 사용, WAS로 요청을 분산합니다.
 
-- **WAS** 📌[전체 코드 확인](https://github.com/AiLEE96/COKO-Dashboard/blob/main/COKO-DASHBOARD/board/views.py)  
+- **WAS** 📌[전체 코드 확인](https://github.com/AiLEE96/COKO/blob/main/COKO-DASHBOARD/board/views.py)  
 
     - 사용자 요청에 따라 Corona.objects의 데이터를 조회, 화면 단에서 출력하여 보여줄 내용을 정렬하고 index.html 파일에 적용하여 리턴합니다.
 
