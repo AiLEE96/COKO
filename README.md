@@ -4,13 +4,44 @@
 
 </br>
 
+## 0. 시연 영상
+
+<details>
+<summary><b> 메인 페이지 </b></summary>
+<div markdown="1">
+
+![MAIN](img/Main_GIF.gif)
+
+</div>
+</details>
+
+
+<details>
+<summary><b> CI/CD </b></summary>
+<div markdown="1">
+
+![CICD](img/CICD_GIF.gif)
+
+</div>
+</details>
+
+
+<details>
+<summary><b> 로그 갱신 </b></summary>
+<div markdown="1">
+
+![LOGS](img/Data_GIF.gif)
+
+</div>
+</details>
+
+<br/>
+
 ## 1. 제작 기간 & 참여 인원 
 - 2022년 11월 14일 - 12월 16일
 - 김정현([xc7230](https://github.com/xc7230))
 - 이창민([AiLEE96](https://github.com/AiLEE96))
 - 백재열([jaeyeol2](https://github.com/jaeyeol2))
-
-</br>
 
 ## 2. 기술 스택
 #### `Back-end`
@@ -204,6 +235,7 @@ python3.9 /apps/get-pip.py
 <details>
 <summary><b> CodeDeploy agent was not able to receive the lifecycle event.</b></summary>
 <div markdown="1">
+
 
 - 전체 에러 메시지 : CodeDeploy agent was not able to receive the lifecycle event. Check the CodeDeploy agent logs on your host and make sure the agent is running and can connect to the CodeDeploy server.
 
